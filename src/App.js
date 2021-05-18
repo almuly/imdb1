@@ -1,12 +1,12 @@
 import './App.css';
-import Header from "./components/Header";
-import MovieBody from "./components/Movie/MovieBody";
+import Header from "./views/Header";
+import Home from "./views/Home";
 
 function App() {
     return (
         <div className="App">
             <Header/>
-            <MovieBody/>
+            <Home/>
         </div>
     );
 }
