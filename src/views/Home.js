@@ -1,8 +1,8 @@
 import React from "react";
-import GridRow from "./utils/GridRow";
+import BlockContent from "./utils/BlockContent";
 
 export default function Home() {
     return (
-        <GridRow/>
+        <BlockContent/>
     );
 }
