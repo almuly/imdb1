@@ -1,5 +1,5 @@
 import React from "react";
-import BlockContent from "./utils/BlockContent";
+import BlockContent from "./BlockContent";
 
 export default function Home() {
     return (
