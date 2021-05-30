@@ -1,19 +1,16 @@
 import React from "react";
-import {Paper, Typography, Card} from "@material-ui/core";
+import {Typography, Card} from "@material-ui/core";
+import GridRow from "./utils/GridRow";
 
 
 export default function ItemCard({data}) {
-
 	return (
-		<Paper>
+		<GridRow xs={3}>
 			<Card>
-				{data.map(item =>
-					<Typography>
-						{item.title || item.name}
-					</Typography>
-				)}
-
+				<Typography>
+					{data.title || data.name}
+				</Typography>
 			</Card>
-		</Paper>
+		</GridRow>
 	);
 }

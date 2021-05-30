@@ -4,7 +4,6 @@ import SearchInput from "../components/Search/SearchInput";
 import GridRow from "./utils/GridRow";
 import SearchResultFilter from "../components/Search/SearcResultFilter";
 import mockData from "../views/utils/MockData"
-import ItemCard from "./ItemCard";
 
 const data = mockData[0].results;
 
@@ -16,9 +15,7 @@ export default function Home() {
 				<SearchInput/>
 			</GridRow>
 			<SearchResultFilter data={data} setResultData={setResultData}/>
-			{!resultData.length ? <BlockContent data={data}/> : <ItemCard data={resultData}/>}
+			<BlockContent data={resultData}/>
 		</>
-
-
 	);
 }
