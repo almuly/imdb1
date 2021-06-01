@@ -74,7 +74,8 @@ export default function SearchInput() {
 			<Paper component="form" className={classes.root}>
 				<SearchDropdownFilter/>
 				<Divider className={classes.divider} orientation="vertical"/>
-				{load ? <CircularProgress size='20px'/> : <SearchIcon/>}
+				 {/*у этих иконок разная ширина и текст скачет - нужно завернуть в бокс фикс ширины*/}
+				{load ? <CircularProgress size='20px'/> : <SearchIcon/>} 
 				<Autocomplete
 					freeSolo
 					options={items.map((option) => option)}
