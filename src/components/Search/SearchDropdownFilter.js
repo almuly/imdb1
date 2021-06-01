@@ -25,7 +25,8 @@ export default function SearchDropdownFilter() {
 	return (
 		<div>
 			<FormControl className={classes.formControl}>
-				<NativeSelect
+        {/* можно просто Select  */}
+				<NativeSelect  
 					value={state.filter}
 					onChange={handleChange}
 					className={classes.selectControl}

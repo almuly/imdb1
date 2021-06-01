@@ -7,7 +7,7 @@ import ItemList from "./ItemList";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		display: "inherit",
+		display: "inherit", // @@@ если дальше идет justifyContent и тд - значит подразумеваешь здесь display:flex
 		justifyContent: "center",
 		alignItems: "center",
 		color: theme.palette.grey[300],

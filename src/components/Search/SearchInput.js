@@ -42,7 +42,10 @@ export default function SearchInput() {
 	const [query, setQuery] = useState('')
 	const [storeItem, setStoreItem] = useState([])
 
-	useEffect(() => {
+	useEffect(() => { 
+	  // подгрузку включаем когда юзер остановится на 300 миллисек, то есть нужно каждый раз чистить
+   // предыдущий timer 
+    
 		const timer = setTimeout(() => {
 			setLoad(false)
 			console.log(query);
@@ -54,8 +57,8 @@ export default function SearchInput() {
 	}, [query]);
 
 	const handleInput = (e) => {
-		let inputValue = e.target.value
-		setQuery(inputValue);
+		let inputValue = e.target.value // не объявляй константу которую будешь только один раз использовать 
+		setQuery(inputValue); // можно добавить inputValue.trim 
 
 	};
 
@@ -63,7 +66,8 @@ export default function SearchInput() {
 		setStoreItem([...storeItem, query])
 		localStorage.setItem('searchRequest', JSON.stringify(storeItem))
 	}
-	const items = JSON.parse(window.localStorage.getItem('searchRequest')) || [];
+	// неплохо бы их отсортировать 
+	const items = JSON.parse(window.localStorage.getItem('searchRequest')) || []; // ключи лучше выносить в константы 
 
 	return (
 		<Grid>

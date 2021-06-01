@@ -13,7 +13,8 @@ export default function Home() {
 		<>
 			<GridRow justify={"center"}>
 				<SearchInput/>
-			</GridRow>
+			 </GridRow>
+      {/* фильтр по идее должен отдавать родителю только выбранный type, но так тоже норм */}
 			<SearchResultFilter data={data} setResultData={setResultData}/>
 			<BlockContent data={resultData}/>
 		</>

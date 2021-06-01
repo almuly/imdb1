@@ -1,3 +1,5 @@
+// моки выноси в отдельный фолдер /mocks им точно не место в utils 
+
 const mockData = [{
 	"page": 1,
 	"results": [
