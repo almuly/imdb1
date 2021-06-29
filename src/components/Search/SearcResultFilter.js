@@ -29,13 +29,13 @@ const useStyles = makeStyles((theme) => ({
 	block__links: {
 		alignItems: "center",
 		justifyContent:"space-between",
-		display:"inherit",
+		display:"flex",
 		paddingLeft:"15px"
 	},
 	block: {
 		alignItems: "center",
 		justifyContent:"flex-end",
-		display:"inherit",
+		display:"flex",
 		color: theme.palette.grey[300],
 	},
 }));

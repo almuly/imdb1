@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
 import SearchIcon from '@material-ui/icons/Search';
 import CircularProgress from '@material-ui/core/CircularProgress'
-import {Grid, TextField} from "@material-ui/core";
+import {Grid, Input} from "@material-ui/core";
 import SearchDropdownFilter from "./SearchDropdownFilter";
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
@@ -76,7 +76,7 @@ export default function SearchInput() {
 					options={items.map((option) => option)}
 					className={classes.form}
 					renderInput={(params) => (
-						<TextField
+						<Input
 							{...params}
 							placeholder="Search Imdb"
 							margin="normal"
