@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function SearchResultFilter({data, setResultData}) {
 	const classes = useStyles()
+  console.log(data)
 	const filtered = (type) => {
 		return data.filter(item => type === item.media_type)
 	}
@@ -70,7 +71,7 @@ export default function SearchResultFilter({data, setResultData}) {
 				<Grid xs={3} className={classes.block__links} style={{ cursor: 'pointer' }}><Link
 					underline={'always'}
 					onClick={handleAllClick}>
-					All ({(data.length)})
+					All ({(data?.length)})
 				</Link>
 					{data ?
 						typeData.map(item =>
@@ -83,7 +84,7 @@ export default function SearchResultFilter({data, setResultData}) {
 						: null}
 				</Grid>
 				<Grid xs className={classes.block}>
-				<Typography color="textSecondary">founded: {(data.length)}</Typography>
+				<Typography color="textSecondary">founded: {(data?.length)}</Typography>
 				</Grid>
 			</GridRow>
 		</>

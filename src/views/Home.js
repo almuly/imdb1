@@ -3,11 +3,12 @@ import BlockContent from "./BlockContent";
 import SearchInput from "../components/Search/SearchInput";
 import GridRow from "./utils/GridRow";
 import SearchResultFilter from "../components/Search/SearcResultFilter";
-import mockData from "../views/utils/MockData"
-
-const data = mockData[0].results;
+import { Search } from "../context/GlobalContext";
 
 export default function Home() {
+  const {searchResults} = Search();
+  const data = searchResults[0]?.results;
+  console.log(searchResults[0])
 	const [resultData, setResultData] = useState([]);
 	return (
 		<>

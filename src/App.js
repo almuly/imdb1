@@ -1,16 +1,16 @@
 import './App.css';
-import Globalcontext from './context/Globalcontext';
+import {GlobalProvider} from './context/GlobalContext'
 import Header from "./views/Header";
 import Home from "./views/Home";
 
 function App() {
     return (
-      <Globalcontext.Provider>
+      <GlobalProvider>
         <div className="App">
             <Header/>
             <Home/>
         </div>
-        </Globalcontext.Provider>
+        </GlobalProvider>
     );
 }
 export default App;

@@ -7,6 +7,8 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import {Grid, Input} from "@material-ui/core";
 import SearchDropdownFilter from "./SearchDropdownFilter";
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import { Search } from '../../context/GlobalContext';
+
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -38,29 +40,32 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchInput() {
 	const classes = useStyles();
+  const {setInputValue, inputValue} = Search();
 	const [load, setLoad] = useState(false)
-	const [query, setQuery] = useState('')
 	const [storeItem, setStoreItem] = useState([])
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setLoad(false)
-			console.log(query);
+			console.log(inputValue);
 		}, 300);
 		return () => {
 			clearTimeout(timer)
 			setLoad(true)
 		};
-	}, [query]);
+	}, [inputValue]);
 
-	const handleInput = (e) => {
-		let inputValue = e.target.value
-		setQuery(inputValue);
+	// const handleInput = (e) => {
+	// 	let inputValue = e.npm starttarget.value
+	// 	setQuery(inputValue);
 
-	};
+	// };
+  function handleInput(event) {
+    setInputValue(event.target.value);
+  }
 
 	const handleBlur = (e) => {
-		setStoreItem([...storeItem, query])
+		setStoreItem([...storeItem, inputValue])
 		localStorage.setItem('searchRequest', JSON.stringify(storeItem))
 	}
 	const items = JSON.parse(window.localStorage.getItem('searchRequest')) || [];
@@ -80,7 +85,7 @@ export default function SearchInput() {
 							{...params}
 							placeholder="Search Imdb"
 							margin="normal"
-							value={query}
+							value={inputValue}
 							onChange={handleInput}
 							onBlur={handleBlur}
 						/>
