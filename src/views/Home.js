@@ -10,7 +10,7 @@ export default function Home() {
     useEffect(() => {
 
     },[searchResults])
-    const data = state.results;
+    const data = state[0]?.results;
     console.log(data)
     const [resultData, setResultData] = useState([]);
     return (

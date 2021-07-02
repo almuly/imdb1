@@ -9,7 +9,7 @@ function globalReducer(state, action) {
 
         case 'update':
             return [
-                state.action.payload
+            action.payload
                 ]
 
         default:
@@ -20,7 +20,8 @@ function globalReducer(state, action) {
 
 function GlobalProvider(props) {
     const [state, dispatch] = useReducer(globalReducer,[])
-    return <GlobalContext.Provider  {...props}  />
+    const value = React.useMemo(() => [state, dispatch], [state])
+    return <GlobalContext.Provider  value={value} {...props}  />
 }
 function useGlobalSearch() {
     const context = useContext(GlobalContext)
@@ -42,6 +43,7 @@ function useGlobalSearch() {
                 console.log(searchResults);
             })
     }, [inputValue]);
+    console.log(state[0]?.results)
     return {
         state,
         update,
