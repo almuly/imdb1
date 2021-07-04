@@ -4,13 +4,13 @@ import GridRow from "./utils/GridRow";
 
 
 export default function ItemCard({data}) {
-	return (
-		<GridRow xs={3}>
-			<Card>
-				<Typography>
-					{data.title || data.name}
-				</Typography>
-			</Card>
-		</GridRow>
-	);
+    return (
+        <GridRow item xs={3}>
+            <Card>
+                <Typography>
+                    {data.title || data.name}
+                </Typography>
+            </Card>
+        </GridRow>
+    );
 }

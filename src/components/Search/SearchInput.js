@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
@@ -7,8 +7,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import {Grid, Input} from "@material-ui/core";
 import SearchDropdownFilter from "./SearchDropdownFilter";
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import {useGlobalSearch} from '../../context/GlobalContext';
-
+import {GlobalContext} from '../../context/GlobalContext';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,32 +39,27 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchInput() {
     const classes = useStyles();
-    const {setInputValue, inputValue,update,searchResults} = useGlobalSearch();
+    const {setInputValue, inputValue,searchResults,setSearchResults} = useContext(GlobalContext);
     const [load, setLoad] = useState(false)
     const [storeItem, setStoreItem] = useState([])
 
     useEffect(() => {
         const timer = setTimeout(() => {
+            clearTimeout(timer)
             setLoad(false)
-            console.log(inputValue);
-            update(searchResults);
+            setSearchResults(searchResults);
         }, 300);
         return () => {
-            clearTimeout(timer)
             setLoad(true)
+            clearTimeout(timer)
         };
     }, [inputValue]);
 
-    // const handleInput = (e) => {
-    // 	let inputValue = e.npm starttarget.value
-    // 	setQuery(inputValue);
-
-    // };
     function handleInput(event) {
         setInputValue(event.target.value);
     }
 
-    const handleBlur = (e) => {
+    const handleBlur = () => {
         setStoreItem([...storeItem, inputValue])
         localStorage.setItem('searchRequest', JSON.stringify(storeItem))
     }
@@ -85,8 +79,7 @@ export default function SearchInput() {
                         <Input
                             {...params}
                             placeholder="Search Imdb"
-                            margin="normal"
-                            value={inputValue}
+                            value={inputValue.trim()}
                             onChange={handleInput}
                             onBlur={handleBlur}
                         />
