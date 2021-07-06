@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
 import SearchIcon from '@material-ui/icons/Search';
 import CircularProgress from '@material-ui/core/CircularProgress'
-import {Grid, Input} from "@material-ui/core";
+import {Grid, TextField} from "@material-ui/core";
 import SearchDropdownFilter from "./SearchDropdownFilter";
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import {GlobalContext} from '../../context/GlobalContext';
@@ -63,7 +63,7 @@ export default function SearchInput() {
         setStoreItem([...storeItem, inputValue])
         localStorage.setItem('searchRequest', JSON.stringify(storeItem))
     }
-    const items = JSON.parse(window.localStorage.getItem('searchRequest')) || [];
+    const items = JSON.parse(window.localStorage.getItem('searchRequest')) ;
 
     return (
         <Grid>
@@ -76,7 +76,7 @@ export default function SearchInput() {
                     options={items.map((option) => option)}
                     className={classes.form}
                     renderInput={(params) => (
-                        <Input
+                        <TextField
                             {...params}
                             placeholder="Search Imdb"
                             value={inputValue.trim()}

@@ -5,7 +5,7 @@ import ItemCard from "./ItemCard";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        display: "inherit",
+        display: "flex",
         paddingRight: "40px",
         paddingLeft: "40px",
         justifyContent: "space-between",
@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
         height: "20vh",
         color: theme.palette.grey[300],
     },
+
 }));
 
 function ItemList({data}) {

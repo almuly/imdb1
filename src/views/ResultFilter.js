@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import {GlobalContext} from "../context/GlobalContext";
 import ItemList from "./ItemList";
@@ -20,7 +19,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box p={3}>
-                    <Typography component={"span"}>{children}</Typography>
+                   {children}
                 </Box>
             )}
         </div>
@@ -34,9 +33,10 @@ function a11yProps(index) {
     };
 }
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        padding:theme.spacing(3),
     },
 }));
 
