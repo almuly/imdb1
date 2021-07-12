@@ -9,7 +9,7 @@ import {GlobalContext} from "../../context/GlobalContext";
 const useStyles = makeStyles(() => ({
     formControl: {
         maxWidth: 120,
-        padding: 0
+        paddingLeft:26,
     },
     selectControl: {
         padding: 0

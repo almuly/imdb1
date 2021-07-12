@@ -1,6 +1,6 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
-import GridRow from "./utils/GridRow";
+import GridRow from "../../views/utils/GridRow";
 import ItemCard from "./ItemCard";
 
 const useStyles = makeStyles((theme) => ({
@@ -8,8 +8,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         paddingRight: "40px",
         paddingLeft: "40px",
-        justifyContent: "space-between",
-        alignItems: "center",
+        alignItems:'flex-start',
         height: "20vh",
         color: theme.palette.grey[300],
     },

@@ -4,7 +4,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import {GlobalContext} from "../context/GlobalContext";
-import ItemList from "./ItemList";
+import ItemList from "../components/Item/ItemList";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;

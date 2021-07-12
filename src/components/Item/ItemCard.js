@@ -6,15 +6,18 @@ import {CardMedia} from "@material-ui/core";
 const useStyles = makeStyles(theme => ({
     card: {
         position: 'relative',
-        width: 200,
+        width: '15%',
+        minWidth: 200,
         display: 'flex',
         flexDirection: 'column',
-       marginBottom:theme.spacing(2),
+        marginRight: theme.spacing(2),
+        marginLeft: theme.spacing(1),
+        marginBottom: theme.spacing(2),
         transition: `all 0.2s ease-in-out`,
-        backgroundColor: (theme.palette.type === 'dark') ? '#333' : '#fff',
+        backgroundColor: (theme.palette.type === 'dark') ? '#333' : '#333',
     },
     cardMedia: {
-        height:300,
+        minHeight: 400,
         transition: `all 0.5s ease-in-out`,
         '&:hover': {
             transform: `scale(1.1)`,
@@ -29,8 +32,8 @@ const useStyles = makeStyles(theme => ({
         color: '#ccc',
         fontSize: 14,
         fontFamily: 'Verdana, Arial, sans-serif',
-        maxHeight: '30%',
-        padding: '20% 5%',
+        maxHeight: '20%',
+        padding: '10% 5%',
         textAlign: 'center',
         borderTop: '1px solid rgba(255,255,255,0.2)',
         transition: `all 0.5s ease-in-out`,
