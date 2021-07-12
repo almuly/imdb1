@@ -1,4 +1,5 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useContext} from 'react';
+import {GlobalContext} from '../../context/GlobalContext';
 import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
@@ -7,7 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import {Grid, TextField} from "@material-ui/core";
 import SearchDropdownFilter from "./SearchDropdownFilter";
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import {GlobalContext} from '../../context/GlobalContext';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,31 +40,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchInput() {
     const classes = useStyles();
-    const {setInputValue, inputValue,searchResults,setSearchResults} = useContext(GlobalContext);
-    const [load, setLoad] = useState(false)
-    const [storeItem, setStoreItem] = useState([])
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            clearTimeout(timer)
-            setLoad(false)
-            setSearchResults(searchResults);
-        }, 300);
-        return () => {
-            setLoad(true)
-            clearTimeout(timer)
-        };
-    }, [inputValue]);
+    const {setInputValue, inputValue, load, setName, name} = useContext(GlobalContext);
+    const items = JSON.parse(window.localStorage.getItem('searchRequest')) || [];
 
     function handleInput(event) {
         setInputValue(event.target.value);
     }
 
     const handleBlur = () => {
-        setStoreItem([...storeItem, inputValue])
-        localStorage.setItem('searchRequest', JSON.stringify(storeItem))
+        setName([...name, inputValue])
     }
-    const items = JSON.parse(window.localStorage.getItem('searchRequest')) ;
 
     return (
         <Grid>
@@ -82,6 +68,7 @@ export default function SearchInput() {
                             value={inputValue.trim()}
                             onChange={handleInput}
                             onBlur={handleBlur}
+                            InputProps={{...params.InputProps, disableUnderline: true}}
                         />
                     )}
                 />
