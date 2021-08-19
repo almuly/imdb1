@@ -1,8 +1,15 @@
 import React from "react";
-import BlockContent from "./BlockContent";
+import SearchInput from "../components/Search/SearchInput";
+import GridRow from "./utils/GridRow";
+import ResultFilter from "./ResultFilter";
 
 export default function Home() {
     return (
-        <BlockContent/>
+        <>
+            <GridRow justify={"center"}>
+                <SearchInput/>
+            </GridRow>
+            <ResultFilter/>
+        </>
     );
 }
